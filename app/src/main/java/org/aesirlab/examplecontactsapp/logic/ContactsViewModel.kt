@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import org.aesirlab.examplecontactsapp.model.Contact
+import java.util.Date
 
 class ContactsViewModel: ViewModel() {
 
@@ -26,5 +27,23 @@ class ContactsViewModel: ViewModel() {
         coroutineScope {
             _allContacts.value = allContacts.value.minus(contact)
         }
+    }
+
+    init {
+        val alex = Contact(
+            "Alex",
+            "Nelson",
+            "an01@aesir.org",
+            "1110002345",
+            System.currentTimeMillis()
+        )
+        val zach = Contact(
+            "Zach",
+            "Grider",
+            "zg01@aesir.org",
+            "0003335521",
+            System.currentTimeMillis()
+        )
+        _allContacts.value = listOf(zach, alex)
     }
 }
