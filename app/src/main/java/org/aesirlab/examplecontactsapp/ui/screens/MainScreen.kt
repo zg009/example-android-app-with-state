@@ -1,6 +1,7 @@
 package org.aesirlab.examplecontactsapp.ui.screens
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,17 +21,20 @@ import org.aesirlab.examplecontactsapp.model.Contact
 @Composable
 fun MainScreen(
     contacts: List<Contact>,
-    onClickNavigate: () -> Unit
+    onClickAddScreen: () -> Unit,
+    onDetailClicked: (Contact) -> Unit
 ) {
 //    Text("This is the Main Screen!")
     Column {
-        Button(onClick = onClickNavigate) {
+        Button(onClick = onClickAddScreen) {
             Text("Add Contacts")
         }
         LazyColumn {
             items(contacts) { contact ->
                 Spacer(modifier = Modifier.padding(vertical = 6.dp))
-                ContactBox(contact = contact)
+                ContactBox(
+                    contact = contact,
+                    onDetailClicked = onDetailClicked)
             }
         }
     }
@@ -39,8 +43,9 @@ fun MainScreen(
 }
 
 @Composable
-fun ContactBox(contact: Contact) {
+fun ContactBox(contact: Contact, onDetailClicked: (Contact) -> Unit) {
     Row(modifier = Modifier
+        .clickable(onClick = { onDetailClicked(contact) })
         .border(2.dp, Color.Red)) {
         Text(text = contact.firstName,
             modifier = Modifier
@@ -68,7 +73,8 @@ fun PreviewMainScreen() {
         LazyColumn {
             items(mockContacts) { contact ->
                 Spacer(modifier = Modifier.padding(vertical = 6.dp))
-                ContactBox(contact = contact)
+                ContactBox(contact = contact,
+                    onDetailClicked = {})
             }
         }
     }

@@ -17,6 +17,13 @@ class ContactsViewModel: ViewModel() {
     )
     val allContacts: StateFlow<List<Contact>> = _allContacts.asStateFlow()
 
+    private val _currentContact = MutableStateFlow<Contact?>(null)
+    val currentContact = _currentContact.asStateFlow()
+
+    fun setCurrentContact(contact: Contact) {
+        _currentContact.value = contact
+    }
+
     suspend fun insert(contact: Contact) {
         coroutineScope {
             _allContacts.value = allContacts.value.plus(contact)
