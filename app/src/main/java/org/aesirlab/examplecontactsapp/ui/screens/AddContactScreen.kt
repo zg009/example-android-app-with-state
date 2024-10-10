@@ -12,5 +12,5 @@ fun AddContactScreen() {
 @Preview
 @Composable
 fun PreviewAddContactScreen() {
-
+    Text("this is the preview screen!")
 }

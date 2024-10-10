@@ -7,6 +7,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import org.aesirlab.examplecontactsapp.ui.screens.AddContactScreen
+import org.aesirlab.examplecontactsapp.ui.screens.DetailViewContactScreen
+import org.aesirlab.examplecontactsapp.ui.screens.MainScreen
 
 enum class ContactsAppScreen {
     MainScreen,
@@ -25,13 +28,15 @@ fun ExampleContactsApp() {
             modifier = Modifier.padding(it)
         ) {
             composable(route = ContactsAppScreen.MainScreen.name) {
-
+                MainScreen {
+                    navController.navigate(ContactsAppScreen.AddContactScreen.name)
+                }
             }
             composable(route = ContactsAppScreen.AddContactScreen.name) {
-
+                AddContactScreen()
             }
             composable(route = ContactsAppScreen.DetailViewContactScreen.name) {
-
+                DetailViewContactScreen()
             }
         }
     }
