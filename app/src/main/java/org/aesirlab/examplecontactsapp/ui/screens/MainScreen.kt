@@ -60,5 +60,16 @@ fun ContactBox(contact: Contact) {
 @Preview
 @Composable
 fun PreviewMainScreen() {
-    Text("This is the main screen!")
+    val mockContacts = listOf(Contact("a", "b", "C", "d", 1011))
+    Column {
+        Button(onClick = { }) {
+            Text("Add Contacts")
+        }
+        LazyColumn {
+            items(mockContacts) { contact ->
+                Spacer(modifier = Modifier.padding(vertical = 6.dp))
+                ContactBox(contact = contact)
+            }
+        }
+    }
 }
