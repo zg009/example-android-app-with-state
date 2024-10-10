@@ -15,7 +15,7 @@ import java.util.Date
 @Composable
 fun DetailViewContactScreen(contact: Contact) {
 //    Text(text = "This is the detail view screen!")
-    Column {
+    Column(modifier = Modifier.padding(vertical = 4.dp)) {
         Spacer(modifier = Modifier.padding(vertical = 3.dp))
         Text(text = contact.firstName)
         Spacer(modifier = Modifier.padding(vertical = 3.dp))
