@@ -5,9 +5,12 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+<<<<<<< HEAD
       <SelectionState runConfigName="PreviewMainScreen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+=======
+>>>>>>> 6168aeef926e882998aac74cdb24b1429af1201a
     </selectionStates>
   </component>
 </project>

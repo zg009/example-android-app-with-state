@@ -24,7 +24,6 @@ fun MainScreen(
     onClickAddScreen: () -> Unit,
     onDetailClicked: (Contact) -> Unit
 ) {
-//    Text("This is the Main Screen!")
     Column {
         Button(onClick = onClickAddScreen) {
             Text("Add Contacts")
